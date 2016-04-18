@@ -2,8 +2,9 @@
 My proposal is to analyze how location and the number of bedrooms would affect housing prices over time and forecast housing prices using the Holt-Winters algorithm (Triple exponential smoothing). I analyzed data of the top 10 major cities in the US provided by http://www.trulia.com from 2010-01-01 to 2015-12-31.
 
 Below, I give an example for Median List Housing Prices in New York City from 2013-02-09 to 2014-02-08. I also provide some scripts that I use.
-----------------
+
 Example
+----------------
  The blue curves represent the original data and the red dotted curves represent the predicted data using the Holt-Winters algorithm. 
 The figures below are results for properties with different numbers of bedrooms. 
 
