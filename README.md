@@ -15,5 +15,5 @@ The figures below are results for properties with different numbers of bedrooms.
 10 Bedroom Properties
 ![Alt text](10BR_properties.jpg?raw=true "10 BR properties")
 
-
+The figure below shows median housing prices of properties that have 1 bedroom - 10 bedrooms in NYC from 2013-02-09 to 2014-02-08. The red dotted curve represnets the prediction.
 ![Alt text](BR1_10_properties.jpg?raw=true "BR1_10 properties")
