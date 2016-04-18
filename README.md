@@ -16,3 +16,4 @@ The figures below are results for properties with different numbers of bedrooms.
 ![Alt text](10BR_properties.jpg?raw=true "10 BR properties")
 
 
+![Alt text](BR1_10_properties.jpg?raw=true "BR1_10 properties")
