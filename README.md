@@ -130,3 +130,40 @@ for date in dates:
 
     dict_writer.writerow(groups)
 ```
+
+Plot/Forecast
+```matlab
+filename = 'median_sd.csv';
+scrsz = get(0,'ScreenSize');
+
+brtable= csvread(filename,1,1);
+
+L =8; m=8; %for Holt-Winters
+
+% n = number of weeks (2010-01-01 - 2015-12-31)
+n = size(brtable, 1); 
+
+% b = max number of bedrooms
+br = 10;
+% median prices table for 1-10 bedroom properties
+brtable = brtable(:,1:br);
+
+% vectoriz the table 
+%brtypes = brtable';
+%brtypes = reshape(brtypes, n*br, 1);
+
+%plot
+fig1 = figure('Position',[1 scrsz(4) scrsz(3)*2/3 scrsz(4)]) ;
+colorbar; 
+plot(brtable); axis tight
+xlabel('Weeks');
+ylabel('Properties with bedroom numbers 1-10');
+saveas(fig1,'SanDiego.jpg','jpg')
+
+
+
+for bs = 1:3
+    brb = brtable(:,3*bs-2 );
+     holtwinters(brb,8,8);
+end
+```
