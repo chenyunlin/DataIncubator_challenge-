@@ -25,7 +25,7 @@ The figure below shows median housing prices of properties that have 1 bedroom -
 
 Scripts
 ----------------
-Script to get data from API 
+Script to get data from API \n
 Run python rest_nyc.py > nyci.csv to save data as csv files. 
 ```python
 import requests
