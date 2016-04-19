@@ -82,3 +82,51 @@ for listingStat in listingStats.findall('listingStat'):
         writer.writerow([date, type, numberOfProperties, medianListingPrice, averageListingPrice])
 
 ```
+Extracting/Oragnizing data
+```python
+import csv
+import sys
+
+dict_reader = csv.DictReader(sys.stdin)
+
+all_types = set()
+all_dates = set()
+median_prices = {}
+for row in dict_reader:
+    date = row['date']
+
+    all_dates.add(date)
+
+    if date not in median_prices:
+        median_prices[date] = {}
+
+    type = row['type']
+
+    if (type != 'All Properties'
+        and len(type) != len('14 Bedroom Properties')):
+
+        # This add 0 to front of types like '3 Bedroom Properties'.
+        type = '0' + type
+
+    all_types.add(type)
+
+    median_prices[date][type] = row['medianListingPrice']
+
+field_names = ['date'] + sorted(list(all_types))
+
+dates = sorted(list(all_dates))
+
+# Write out the rows you want.
+dict_writer = csv.DictWriter(sys.stdout, field_names)
+dict_writer.writeheader()
+
+for date in dates:
+    groups = median_prices[date]
+    groups['date'] = date
+
+    for field in field_names:
+        if field not in groups:
+            groups[field] = ''
+
+    dict_writer.writerow(groups)
+```
