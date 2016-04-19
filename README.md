@@ -25,7 +25,8 @@ The figure below shows median housing prices of properties that have 1 bedroom -
 
 Scripts
 ----------------
-Getting data from API
+Script to get data from API 
+Run python rest_nyc.py > nyci.csv to save data as csv files. 
 ```python
 import requests
 import xml.etree.ElementTree as ET
@@ -82,7 +83,9 @@ for listingStat in listingStats.findall('listingStat'):
         writer.writerow([date, type, numberOfProperties, medianListingPrice, averageListingPrice])
 
 ```
-Extracting/Oragnizing data
+Script to extract data
+Run cat nyc.csv | python extract_median_prices.py > median_nyc.csv
+
 ```python
 import csv
 import sys
@@ -133,7 +136,7 @@ for date in dates:
 
 Plot/Forecast
 ```matlab
-filename = 'median_sd.csv';
+filename = 'median_nyc.csv';
 scrsz = get(0,'ScreenSize');
 
 brtable= csvread(filename,1,1);
@@ -158,7 +161,7 @@ colorbar;
 plot(brtable); axis tight
 xlabel('Weeks');
 ylabel('Properties with bedroom numbers 1-10');
-saveas(fig1,'SanDiego.jpg','jpg')
+saveas(fig1,'New York.jpg','jpg')
 
 
 
