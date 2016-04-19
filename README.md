@@ -85,6 +85,7 @@ for listingStat in listingStats.findall('listingStat'):
 
 ```
 Script to extract data
+
 Run cat nyc.csv | python extract_median_prices.py > median_nyc.csv
 
 ```python
